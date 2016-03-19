@@ -23,6 +23,7 @@
   },
   "dependencies": {
     "cheerio": "^0.20.0",
+    "joi": "^8.0.5",
     "lodash": "^4.6.1",
     "seneca": "^1.4.0"
   }

@@ -1,4 +1,5 @@
 const seneca = require('seneca');
 
 seneca()
-    .listen({ host: 'localhost', port: '90101' });
+    .use('./scores')
+    .listen({ host: 'localhost', port: '9101' });
