@@ -23,8 +23,10 @@
   },
   "dependencies": {
     "cheerio": "^0.20.0",
+    "cookie": "^0.2.3",
     "joi": "^8.0.5",
     "lodash": "^4.6.1",
+    "request-promise": "^2.0.1",
     "seneca": "^1.4.0"
   }
 }
