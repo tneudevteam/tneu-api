@@ -20,5 +20,10 @@
   "devDependencies": {
     "code": "^2.1.1",
     "lab": "^10.3.0"
+  },
+  "dependencies": {
+    "cheerio": "^0.20.0",
+    "lodash": "^4.6.1",
+    "seneca": "^1.4.0"
   }
 }
