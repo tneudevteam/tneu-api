@@ -1,0 +1,24 @@
+{
+  "name": "tneu-api",
+  "version": "0.0.1",
+  "description": "Home of TNEU APIs",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index",
+    "test": "lab"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/vladgolubev/tneu-api.git"
+  },
+  "author": "Vlad Golubev <golubev.vld@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vladgolubev/tneu-api/issues"
+  },
+  "homepage": "https://github.com/vladgolubev/tneu-api#readme",
+  "devDependencies": {
+    "code": "^2.1.1",
+    "lab": "^10.3.0"
+  }
+}
