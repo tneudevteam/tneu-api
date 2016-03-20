@@ -28,10 +28,7 @@ __Response__:
 
 Access token to make further requests
 ```json
-{
-  "success": true,
-  "token": "9civebg8kcebkmq4q4qounrhd4"
-}
+{ "token": "9civebg8kcebkmq4q4qounrhd4" }
 ```
 
 ### Get
@@ -42,37 +39,32 @@ __Response__:
 
 ```javascript
 {
-    "success": true,
-    "response": {
-        "name": "Плішко Іван Володимирович",
-        "group": "СДМК-91",
-        "semesters": [ // Array of 2 elements
-            [{ // Each element is an array of subjects in current semester
-                "name": "Гроші та кредит",
-                "controlType": "Екзамен",
-                "totalScore": 90,
-                "modules": [{
-                    "weight": 20,
-                    "date": "05.11.15",
-                    "score": 90
-                }, /* ... */ ]
-            }, /* ... */ ],
-            [{
-                "name": "Іноземна мова",
-                "controlType": "Залік",
-                "totalScore": 92,
-                "modules": [{
-                    "weight": 30,
-                    "date": "23.10.15",
-                    "score": 92
-                }, /* ... */ ]
+    "name": "Плішко Іван Володимирович",
+    "group": "СДМК-91",
+    "semesters": [ // Array of 2 elements
+        [{ // Each element is an array of subjects in current semester
+            "name": "Гроші та кредит",
+            "controlType": "Екзамен",
+            "totalScore": 90,
+            "modules": [{
+                "weight": 20,
+                "date": "05.11.15",
+                "score": 90
             }, /* ... */ ]
-        ]
-    }
+        }, /* ... */ ],
+        [{
+            "name": "Іноземна мова",
+            "controlType": "Залік",
+            "totalScore": 92,
+            "modules": [{
+                "weight": 30,
+                "date": "23.10.15",
+                "score": 92
+            }, /* ... */ ]
+        }, /* ... */ ]
+    ]
 }
 ```
-
-In case of error additional `error` property will be present.
 
 In case of incorrect arguments you'll recieve a meaningful response explaining which arguments haven't passed the validation.
 
