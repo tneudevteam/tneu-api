@@ -4,10 +4,10 @@
 
 - [TNEU APIs](#tneu-apis)
 - [API](#api)
-  - [Scores](#scores)
+  - [:100: Scores](#100-scores)
     - [Auth](#auth)
     - [Get](#get)
-  - [News](#news)
+  - [:newspaper: News](#newspaper-news)
     - [Get](#get-1)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -16,7 +16,7 @@
 The home for TNEU APIs.
 
 # API
-## Scores
+## :100: Scores
 
 The purpose of this endpoint is to provide a simple interface to get the students' scores from [mod.tanet](http://mod.tanet.edu.te.ua).
 
@@ -76,7 +76,7 @@ In case of error additional `error` property will be present.
 
 In case of incorrect arguments you'll recieve a meaningful response explaining which arguments haven't passed the validation.
 
-## News
+## :newspaper: News
 ### Get
 
 To be done
