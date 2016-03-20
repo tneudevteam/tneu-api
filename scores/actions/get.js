@@ -2,7 +2,7 @@ const rest = require('request-promise');
 const cookie = require('cookie');
 
 const Parser = require('../helpers/parser');
-const wrongTokenMessage = 'Wrong or obsolete token passed. Try to obtain a new one.';
+const errors = require('../helpers/errors');
 
 function getScores(message, done) {
     const token = message.token;
@@ -13,8 +13,8 @@ function getScores(message, done) {
             done(null, scoresJson);
         })
         .catch((error) => {
-            if (error.message === wrongTokenMessage) {
-                done(null, { success: false, reason: wrongTokenMessage });
+            if (error.message === errors.wrongToken) {
+                done(null, { success: false, reason: errors.wrongToken });
             } else {
                 done(error);
             }
@@ -36,7 +36,7 @@ function _getRawHtml(token) {
             const wrongToken = response.connection._httpMessage.path === '/site/login';
             const wrongRedirect = response.connection._httpMessage.path === '/';
 
-            if (wrongToken) throw new Error(wrongTokenMessage);
+            if (wrongToken) throw new Error(errors.wrongToken);
 
             if (wrongRedirect) { // Sometimes it redirects to tneu.edu.ua
                 console.log('[get-scores] redirect: retry');
