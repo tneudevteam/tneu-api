@@ -1,6 +1,7 @@
 'use strict';
 
 const cheerio = require('cheerio');
+const _ = require('lodash');
 
 class Parser {
     constructor(rawHtml) {
@@ -8,11 +9,22 @@ class Parser {
     }
 
     _getName() {
-        return this.$('h2.pageTitle').text()
+        const rawName = this.$('h2.pageTitle').text();
+        if (!rawName) return 'Ім’я Прізвище';
+        return _
+            .chain(rawName.match(/.*(?=\()/g))
+            .first()
+            .startCase()
+            .value();
     }
 
     _getGroup() {
-        return this.$('h2.pageTitle').text()
+        const rawName = this.$('h2.pageTitle').text();
+        if (!rawName) return 'ГРУПА';
+        return _
+            .chain(rawName.match(/[^\(]+(?=\))/g))
+            .first()
+            .value();
     }
 
     _getSemesters() {
