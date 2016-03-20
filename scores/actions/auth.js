@@ -40,14 +40,15 @@ function _requestAuthToken(username, password) {
             const cookies = _.map(response.headers['set-cookie'], (one) => cookie.parse(one));
             const token = _.get(_.findLast(cookies, (el) => _.has(el, 'PHPSESSID')), 'PHPSESSID');
 
-            if (_.isEmpty(cookies)) throw new Error(errors.wrongCredentials);
+            const wrongCredentials = body.includes('Для входу в систему введіть логін/пароль:');
+            if (wrongCredentials) throw new Error(errors.wrongCredentials);
 
-            if (!token) { // Sometimes it redirects to tneu.edu.ua
+            if (_.isEmpty(cookies)) { // Sometimes it redirects to tneu.edu.ua
                 console.log('[auth] no token: trying again');
                 return _requestAuthToken(username, password);
-            } else {
-                return token;
             }
+
+            return token;
         }
     };
 
