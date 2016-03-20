@@ -10,10 +10,6 @@ function auth(message, done) {
 
     _requestAuthToken(username, password)
         .then((response) => {
-            if (!response) {
-                console.log('[auth] no token: trying again');
-                return auth(message, done);
-            }
             done(null, { success: true, token: response });
         })
         .catch((error) => {
@@ -34,12 +30,14 @@ function _requestAuthToken(username, password) {
             yt0: 'Увійти'
         },
         jar: true,
-        transform: function (body, response, resolveWithFullResponse) {
-            if (resolveWithFullResponse) {
-                const cookies = _.map(response.headers['set-cookie'], (one) => cookie.parse(one));
-                return _.get(_.findLast(cookies, (el) => _.has(el, 'PHPSESSID')), 'PHPSESSID');
+        transform: function (body, response) {
+            const cookies = _.map(response.headers['set-cookie'], (one) => cookie.parse(one));
+            const token = _.get(_.findLast(cookies, (el) => _.has(el, 'PHPSESSID')), 'PHPSESSID');
+            if (!token) { // Sometimes it redirects to tneu.edu.ua
+                console.log('[auth] no token: trying again');
+                return _requestAuthToken(username, password);
             } else {
-                return body;
+                return token;
             }
         }
     };

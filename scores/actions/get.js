@@ -8,8 +8,8 @@ function getScores(message, done) {
 
     _getRawHtml(token)
         .then((response) => {
-            const parser = new Parser(response);
-            done(null, { success: true, response: parser.getJSON() });
+            const scoresJson = new Parser(response).getJSON();
+            done(null, { success: true, response: scoresJson });
         })
         .catch((error) => {
             done(null, { success: false, error: error });
@@ -23,8 +23,18 @@ function _getRawHtml(token) {
         encoding: 'utf8',
         simple: false,
         jar: true,
+        resolveWithFullResponse: true,
         headers: {
             Cookie: cookie.serialize('PHPSESSID', token)
+        },
+        transform: function (body, response) {
+            const serverWrongRedirect = !!response.headers['set-cookie'];
+            if (serverWrongRedirect) { // Sometimes it redirects to tneu.edu.ua
+                console.log('[get-scores] redirect: retry');
+                return _getRawHtml(token); // So repeat request
+            } else {
+                return body;
+            }
         }
     };
 
