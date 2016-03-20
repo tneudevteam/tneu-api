@@ -1,6 +1,5 @@
 const rest = require('request-promise');
 const cookie = require('cookie');
-const iconv = require('iconv-lite');
 
 const Parser = require('../helpers/parser');
 
