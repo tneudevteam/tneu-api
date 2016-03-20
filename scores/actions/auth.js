@@ -10,6 +10,10 @@ function auth(message, done) {
 
     _requestAuthToken(username, password)
         .then((response) => {
+            if (!response) {
+                console.log('[auth] no token: trying again');
+                return auth(message, done);
+            }
             done(null, { success: true, token: response });
         })
         .catch((error) => {
