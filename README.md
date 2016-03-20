@@ -12,7 +12,7 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# TNEU APIs
+# TNEU APIs [![Build Status](https://travis-ci.org/vladgolubev/tneu-api.svg?branch=master)](https://travis-ci.org/vladgolubev/tneu-api)
 The home for TNEU APIs.
 
 # API
