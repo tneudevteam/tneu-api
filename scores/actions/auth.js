@@ -10,11 +10,9 @@ function auth(message, done) {
 
     _requestAuthToken(username, password)
         .then((response) => {
-            done(null, { success: true, token: response });
+            done(null, { token: response });
         })
-        .catch((error) => {
-            done(null, { success: false, error: error });
-        });
+        .catch(done);
 }
 
 function _requestAuthToken(username, password) {

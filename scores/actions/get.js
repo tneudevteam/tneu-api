@@ -9,11 +9,9 @@ function getScores(message, done) {
     _getRawHtml(token)
         .then((response) => {
             const scoresJson = new Parser(response).getJSON();
-            done(null, { success: true, response: scoresJson });
+            done(null, scoresJson);
         })
-        .catch((error) => {
-            done(null, { success: false, error: error });
-        });
+        .catch(done);
 }
 
 function _getRawHtml(token) {
