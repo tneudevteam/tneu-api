@@ -72,3 +72,7 @@ In case of incorrect arguments you'll recieve a meaningful response explaining w
 ### Get
 
 To be done
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vladgolubev/tneu-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
