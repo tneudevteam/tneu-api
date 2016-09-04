@@ -2,13 +2,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [TNEU APIs](#tneu-apis)
+- [TNEU APIs *](#tneu-apis-)
 - [API](#api)
   - [:100: Scores](#100-scores)
     - [Auth](#auth)
     - [Get](#get)
   - [:newspaper: News](#newspaper-news)
     - [Get](#get-1)
+- [Development](#development)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -73,6 +74,11 @@ In case of incorrect arguments you'll recieve a meaningful response explaining w
 
 To be done
 
+# Development
 
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/vladgolubev/tneu-api/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+In order to run in locally, follow these steps:
 
+1. `git clone git@github.com:vladgolubev/tneu-api.git`
+2. `cd tneu-api`
+3. `docker build -t tneu-api .`
+4. `docker run -p 9101:9101 tneu-api`
