@@ -1,5 +1,4 @@
 .dockerignore
 .gitignore
 .travis.yml
-Dockerfile
 test/
