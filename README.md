@@ -76,9 +76,13 @@ To be done
 
 # Development
 
-In order to run in locally, follow these steps:
+## Build and run locally
 
 1. `git clone git@github.com:vladgolubev/tneu-api.git`
 2. `cd tneu-api`
 3. `docker build -t tneu-api .`
 4. `docker run -p 9101:9101 tneu-api`
+
+## Ready Docker image
+
+1. `docker run -d -p 9101:9101 tneu/scores`
