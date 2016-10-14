@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index",
+    "start-dev": "nodemon index",
     "test": "lab"
   },
   "repository": {
@@ -27,6 +28,7 @@
     "joi": "^8.0.5",
     "lodash": "^4.6.1",
     "request-promise": "^2.0.1",
+    "restify": "^4.1.1",
     "seneca": "^1.4.0"
   }
 }
